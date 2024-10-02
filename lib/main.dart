@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:http/http.dart' as http;
-
+import 'dart:convert';
 void main() {
   runApp(const MyApp());
 }
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
-      htmlWidget =  HtmlWidget(response.body);
+      htmlWidget =  HtmlWidget(utf8.decode(response.bodyBytes));
 
     });
   }
